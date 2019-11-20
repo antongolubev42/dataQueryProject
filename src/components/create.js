@@ -8,12 +8,14 @@ class Create extends React.Component {
 
     this.state = {Title:'',
                   Year:'',
-                Poster:''};
+                Poster:'',
+              Base64Image:''};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMovieTitleChange = this.handleMovieTitleChange.bind(this);
     this.handleMovieYearChange = this.handleMovieYearChange.bind(this);
     this.handleMoviePosterChange = this.handleMoviePosterChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
   }
   
   handleMovieTitleChange(e){
@@ -26,6 +28,24 @@ class Create extends React.Component {
 
   handleMoviePosterChange(e){
     this.setState({Poster: e.target.value});
+  }
+
+  getBase64(file, cb) {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+        cb(reader.result)
+    };
+    reader.onerror = function (error) {
+        console.log('Error: ', error);
+    };
+}
+
+  handleImageChange(e){
+    alert(e.target.files[0]);
+    this.getBase64(e.target.files[0], (base64) =>{
+        this.setState({Base64Image:base64});
+    })
   }
 
   handleSubmit(e){
@@ -82,12 +102,22 @@ class Create extends React.Component {
           ></textarea>
         </div>
         <div>
+          <label>Real Image Upload</label>
+          <input
+          type='file'
+          className='form-control'
+          onChange={this.handleImageChange}
+          ></input>
+
+        </div>
+        <div>
           <input
           type="submit"
           value="Add Movie">
           </input>
         </div>
         </form>
+        <img src={this.state.Base64Image}></img>
       </div>
     );
   }

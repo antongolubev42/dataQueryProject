@@ -6,9 +6,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const mongoDB = 'mongodb+srv://admin:hello@cluster0-lk0ot.mongodb.net/test?retryWrites=true&w=majority';
+const mongoDB = 'mongodb+srv://admin:1234@cluster0-lk0ot.mongodb.net/mycars?retryWrites=true&w=majority';
 mongoose.connect(mongoDB,{useNewUrlParser:true});
-
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
+//
 app.use(cors());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -32,10 +34,10 @@ const movieSchema = new Schema({
     poster:String
 })
 
-const MovieModel = mongoose.model('movie', movieSchema);
+const MovieModel = mongoose.model('car', movieSchema);
+const HorrorMOvieMOdel = mongoose.model('horror', movieSchema);
 
-
-app.get('/', (req, res) => res.send('Hello World!'))
+//app.get('/', (req, res) => res.send('Hello World!'))
 
 app.get('/whatever', (req, res) => {
     res.send('whatever')
@@ -138,5 +140,10 @@ app.get('/hello/:name', (req, res) => {
     console.log(req.params.name);
     res.send('Hello ' + req.params.name)
 })
+
+// app.get('*', (req,res) =>{
+//     res.sendFile(path.join(__dirname+'/../build/index.html'));
+//     });
+    
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
