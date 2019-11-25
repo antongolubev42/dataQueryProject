@@ -28,7 +28,7 @@ class MovieItem extends React.Component{
                 <img src={this.props.movie.Poster}></img> */}
 
 
-  <Card  border="primary" style={{ width: '28rem' }}>
+  <Card  border="primary" style={{ width: '33rem' }}>
   <Card.Header>{this.props.movie.title}</Card.Header>
   <Card.Body>
     <blockquote className="blockquote mb-0">
