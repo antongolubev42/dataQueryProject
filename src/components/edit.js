@@ -11,9 +11,9 @@ class Edit extends React.Component{
                       _id:''};
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleShowTitleChange = this.handleShowTitleChange.bind(this);
-        this.handleShowYearChange = this.handleShowYearChange.bind(this);
-        this.handleShowPosterChange = this.handleShowPosterChange.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleYearChange = this.handleYearChange.bind(this);
+        this.handlePoster = this.handlePoster.bind(this);
       }
 componentDidMount(){
     alert(this.props.match.params.id);
@@ -32,15 +32,15 @@ componentDidMount(){
 
 }
 //edit functions for title , year and poster
-handleShowTitleChange(e){
+handleTitleChange(e){
     this.setState({Title: e.target.value});
   }
 
-  handleShowYearChange(e){
+  handleYearChange(e){
     this.setState({Year: e.target.value});
   }
 
-  handleShowPosterChange(e){
+  handlePoster(e){
     this.setState({Poster: e.target.value});
   }
 
@@ -78,7 +78,7 @@ handleShowTitleChange(e){
           type='text'
           className='form-control'
           value={this.state.Title}
-          onChange={this.handleShowTitleChange}
+          onChange={this.handleTitleChange}
           ></input>
         </div>
         <div className='form-group'>
@@ -87,7 +87,7 @@ handleShowTitleChange(e){
           type='text'
           className='form-control'
           value={this.state.Year}
-          onChange={this.handleShowYearChange}
+          onChange={this.handleYearChange}
           ></input>
         </div>
         <div className='form-group'>
@@ -96,7 +96,7 @@ handleShowTitleChange(e){
           row='3'
           className='form-control'
           value={this.state.Poster}
-          onChange={this.handleShowPosterChange}
+          onChange={this.handlePoster}
           ></textarea>
         </div>
         <div>

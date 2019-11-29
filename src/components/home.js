@@ -3,7 +3,7 @@ import '../App.css';
 import Logo from './logo.png';
 
 
-class Content extends React.Component {
+class Home extends React.Component {
 
   render() {
     return (
@@ -15,15 +15,18 @@ class Content extends React.Component {
         <br></br>
         <br></br>
         <br></br>
+        <font color="white"><h3>Useful links:</h3></font> 
+        <a href="https://www.imdb.com/">IMDB</a>
         <br></br>
+        <a href="https://www.netflix.com/ie/browse/genre/83">Netflix</a>
+        <br></br>
+        <a href="https://www.rottentomatoes.com/">Rotten Tomatoes</a>
         <br></br>
         <br></br><br></br>
         <br></br>
         <br></br>
         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        
         {/*Social media section */}
         <h4 align="left">Find us on social media:</h4> 
        
@@ -46,4 +49,4 @@ class Content extends React.Component {
   }
 }
 
-export default Content;
+export default Home;

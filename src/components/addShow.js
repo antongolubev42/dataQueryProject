@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { newExpression } from '@babel/types';
 
-class Create extends React.Component {
+class addShow extends React.Component {
   constructor(props){
     super(props);
 
@@ -12,21 +12,21 @@ class Create extends React.Component {
               Base64Image:''};
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleShowTitleChange = this.handleShowTitleChange.bind(this);
-    this.handleShowYearChange = this.handleShowYearChange.bind(this);
-    this.handleShowPosterChange = this.handleShowPosterChange.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleYearChange = this.handleYearChange.bind(this);
+    this.handlePoster = this.handlePoster.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
   }
   //functions for adding to database
-  handleShowTitleChange(e){
+  handleTitleChange(e){
     this.setState({Title: e.target.value});
   }
 
-  handleShowYearChange(e){
+  handleYearChange(e){
     this.setState({Year: e.target.value});
   }
 
-  handleShowPosterChange(e){
+  handlePoster(e){
     this.setState({Poster: e.target.value});
   }
 
@@ -80,7 +80,7 @@ class Create extends React.Component {
           type='text'
           className='form-control'
           value={this.state.Title}
-          onChange={this.handleShowTitleChange}
+          onChange={this.handleTitleChange}
           ></input>
         </div>
         <div className='form-group'>
@@ -89,7 +89,7 @@ class Create extends React.Component {
           type='text'
           className='form-control'
           value={this.state.Year}
-          onChange={this.handleShowYearChange}
+          onChange={this.handleYearChange}
           ></input>
         </div>
         <div className='form-group'>
@@ -98,7 +98,7 @@ class Create extends React.Component {
           row='3'
           className='form-control'
           value={this.state.Poster}
-          onChange={this.handleShowPosterChange}
+          onChange={this.handlePoster}
           ></textarea>
         </div>
         <div>
@@ -125,4 +125,4 @@ class Create extends React.Component {
   }
 }
 
-export default Create;
+export default addShow;
