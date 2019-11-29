@@ -8,9 +8,9 @@ class Content extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>TvSpotter</h1>
+       <font color="white"><h1>TvCental</h1></font> 
         <img src={Logo} height="200" width="200" alt="logo"/>
-        <h3>Welcome to TvSpotter, where we keep our eyes on the best and latest tv shows</h3>
+        <font color="white"><h3>Welcome to TvCentral, where we keep our eyes on the best and latest tv shows</h3></font>
         <br></br>
         <br></br>
         <br></br>
@@ -24,6 +24,7 @@ class Content extends React.Component {
         <br></br>
         <br></br>
         <br></br>
+        {/*Social media section */}
         <h4 align="left">Find us on social media:</h4> 
        
         <h5 align="left"> <img align="left" src="https://banner2.cleanpng.com/20180802/czs/kisspng-malta-blockchain-summit-ad-fraud-advertising-indus-twitter-logo-png-5b6352722ae8d6.4341314915332358261758.jpg" height="30" width="30"></img><a href="https://twitter.com">Twitter</a></h5>

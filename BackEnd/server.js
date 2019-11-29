@@ -28,14 +28,14 @@ app.use(bodyParser.json())
 
 const Schema = mongoose.Schema;
 
-const movieSchema = new Schema({
+const showSchema = new Schema({
     title:String,
     year:String,
     poster:String
 })
 
-const MovieModel = mongoose.model('car', movieSchema);
-const HorrorMOvieMOdel = mongoose.model('horror', movieSchema);
+const ShowModel = mongoose.model('car', showSchema);
+const HorrorShowMOdel = mongoose.model('horror', showSchema);
 
 //app.get('/', (req, res) => res.send('Hello World!'))
 
@@ -60,10 +60,10 @@ app.get('/test', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));
 })
 
-app.get('/api/movies', (req, res) => {
+app.get('/api/shows', (req, res) => {
 
-    MovieModel.find((error, data) =>{
-        res.json({movies:data});
+    ShowModel.find((error, data) =>{
+        res.json({shows:data});
     })
     // const myMovies = [
     //     {
@@ -85,28 +85,28 @@ app.get('/api/movies', (req, res) => {
     //     });
 })
 
-app.get('/api/movies/:id', (req, res)=>{
+app.get('/api/shows/:id', (req, res)=>{
     console.log(req.params.id);
 
-    MovieModel.findById(req.params.id, (error,data)=>{
+    ShowModel.findById(req.params.id, (error,data)=>{
         res.json(data);
     })
 })
 
-app.delete('/api/movies/:id', (req, res)=>{
+app.delete('/api/shows/:id', (req, res)=>{
     console.log(req.params.id);
 
-    MovieModel.deleteOne({_id: req.params.id},
+    ShowModel.deleteOne({_id: req.params.id},
         (error, data) =>{
             res.json(data);
         })
 })
 
-app.put('/api/movies/:id',(req,res)=>{
+app.put('/api/shows/:id',(req,res)=>{
     console.log("Edit: "+req.params.id);
     console.log(req.body);
     
-    MovieModel.findByIdAndUpdate(req.params.id,
+    ShowModel.findByIdAndUpdate(req.params.id,
         req.body,
         {new:true},
         (error,data)=>{
@@ -114,21 +114,21 @@ app.put('/api/movies/:id',(req,res)=>{
         })
 })
 
-app.get('/api/movies/:id', (req,res)=>{
+app.get('/api/shows/:id', (req,res)=>{
     console.log("GET: "+req.params.id);
 
-    MovieModel.findById(req.params.id,(error, data)=>{
+    ShowModel.findById(req.params.id,(error, data)=>{
         res.json(data);
     })
 })
 
-app.post('/api/movies', (req,res)=>{
+app.post('/api/shows', (req,res)=>{
     console.log('Post request Successful');
     console.log(req.body.title);
     console.log(req.body.year);
     console.log(req.body.poster);
 
-    MovieModel.create({
+    ShowModel.create({
         title:req.body.title, 
         year:req.body.year, 
         poster:req.body.poster

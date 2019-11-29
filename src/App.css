@@ -1,12 +1,16 @@
 .App {
   text-align: center;
-  background-image: url(https://previews.123rf.com/images/tartila/tartila1805/tartila180500061/101257368-retro-cinema-or-theater-frame-illuminated-by-spotlight-now-showing-sign-on-red-curtain-backdrop-vint.jpg);
+  background-image: url(https://www.syfy.com/sites/syfy/files/styles/1200x680/public/wire/legacy/Game-of-Thrones-1_0_0.png);
 }
 
 .App-logo {
   height: 40vmin;
 }
 
+.appDiv{
+  margin:auto;
+  width:50%;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -12,21 +12,21 @@ class Create extends React.Component {
               Base64Image:''};
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleMovieTitleChange = this.handleMovieTitleChange.bind(this);
-    this.handleMovieYearChange = this.handleMovieYearChange.bind(this);
-    this.handleMoviePosterChange = this.handleMoviePosterChange.bind(this);
+    this.handleShowTitleChange = this.handleShowTitleChange.bind(this);
+    this.handleShowYearChange = this.handleShowYearChange.bind(this);
+    this.handleShowPosterChange = this.handleShowPosterChange.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
   }
-  
-  handleMovieTitleChange(e){
+  //functions for adding to database
+  handleShowTitleChange(e){
     this.setState({Title: e.target.value});
   }
 
-  handleMovieYearChange(e){
+  handleShowYearChange(e){
     this.setState({Year: e.target.value});
   }
 
-  handleMoviePosterChange(e){
+  handleShowPosterChange(e){
     this.setState({Poster: e.target.value});
   }
 
@@ -54,12 +54,12 @@ class Create extends React.Component {
     e.preventDefault();
     
     
-                const newMovie = {
+                const newShow = {
                   title: this.state.Title,
                   year: this.state.Year,
                   poster: this.state.Poster
                 };
-          axios.post('http://localhost:4000/api/movies',newMovie) 
+          axios.post('http://localhost:4000/api/shows',newShow) 
           .then()
           .catch();
           
@@ -72,37 +72,37 @@ class Create extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello from Create component</h1>
+        <font color="white"><label><h1>Add a show to the What's Hot section</h1></label></font> 
         <form onSubmit={this.handleSubmit}>
         <div className='form-group'>
-          <label>Movie Title</label>
+        <font color="white"><label>Show Title</label></font>
           <input
           type='text'
           className='form-control'
           value={this.state.Title}
-          onChange={this.handleMovieTitleChange}
+          onChange={this.handleShowTitleChange}
           ></input>
         </div>
         <div className='form-group'>
-          <label>Movie Year</label>
+        <font color="white"><label>Show Year</label></font>
           <input
           type='text'
           className='form-control'
           value={this.state.Year}
-          onChange={this.handleMovieYearChange}
+          onChange={this.handleShowYearChange}
           ></input>
         </div>
         <div className='form-group'>
-          <label>Movie Poster Url</label>
+        <font color="white"><label>Show Poster Url</label></font>
           <textarea
           row='3'
           className='form-control'
           value={this.state.Poster}
-          onChange={this.handleMoviePosterChange}
+          onChange={this.handleShowPosterChange}
           ></textarea>
         </div>
         <div>
-          <label>Real Image Upload</label>
+          <font color="white"><label>Upload Poster From Your PC</label></font>
           <input
           type='file'
           className='form-control'
@@ -113,12 +113,14 @@ class Create extends React.Component {
         <div>
           <input
           type="submit"
-          value="Add Movie">
+          value="Add Show">
           </input>
         </div>
         </form>
         <img src={this.state.Base64Image}></img>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
       </div>
+      
     );
   }
 }

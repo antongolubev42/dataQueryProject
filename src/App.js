@@ -13,6 +13,10 @@ import Create from './components/create';
 import Read from './components/read';
 import Edit from './components/edit';
 import Logo from './logo1.jpg';
+import action from './components/action';
+import comedy from './components/comedy';
+import drama from './components/drama';
+import all from './components/all';
 
 
 class App extends React.Component {
@@ -29,11 +33,11 @@ class App extends React.Component {
         <Nav.Link href="/read">What's hot</Nav.Link>
         <Nav.Link href="/create">Add a tv show</Nav.Link>
         <NavDropdown title="Genres" id="collasible-nav-dropdown">
-          <NavDropdown.Item href="/read">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Comedy</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Drama</NavDropdown.Item>
+          <NavDropdown.Item href="/action">Action</NavDropdown.Item>
+          <NavDropdown.Item href="/comedy">Comedy</NavDropdown.Item>
+          <NavDropdown.Item href="/drama">Drama</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">All</NavDropdown.Item>
+          <NavDropdown.Item href="/all">All</NavDropdown.Item>
         </NavDropdown>
     </Nav>
     <Nav>
@@ -49,6 +53,10 @@ class App extends React.Component {
             <Route path="/create" component={Create} />
             <Route path="/read" component={Read} />
             <Route path="/edit/:id" component={Edit} />
+            <Route path="/action" component={action} />
+            <Route path="/comedy" component={comedy} />
+            <Route path="/drama" component={drama} />
+            <Route path="/all" component={all} />
           </Switch>
         </div>
       </BrowserRouter>
